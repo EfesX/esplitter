@@ -1,14 +1,7 @@
-
-
 use crate::*;
 use tempfile::tempdir;
 
-fn create_test_file(
-    dir: &tempfile::TempDir,
-    name: &str,
-    size: usize,
-    fill_byte: u8,
-) -> PathBuf {
+fn create_test_file(dir: &tempfile::TempDir, name: &str, size: usize, fill_byte: u8) -> PathBuf {
     let path = dir.path().join(name);
     let mut file = fs::File::create(&path).unwrap();
     file.write_all(&vec![fill_byte; size]).unwrap();
